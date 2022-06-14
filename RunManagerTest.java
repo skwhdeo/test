@@ -5,6 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.junit.jupiter.api.Test;
 
@@ -42,4 +45,36 @@ class RunManagerTest {
 
 	}
 
+	@Test
+	void test2() {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd a hh:mm:ss");
+		Date date = new Date();
+
+		System.out.println("now  (" + format.format(date) + ")");
+
+	}
+
+	@Test
+	void test3() {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd a hh:mm:ss");
+		Date date = new Date(System.currentTimeMillis());
+
+		System.out.println("now  (" + format.format(date) + ")");
+	}
+
+	@Test
+	void test4() {
+		String str = "2020-01-31 14:20:59";
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date date = null;
+
+		try {
+			date = format.parse(str);
+		} catch (ParseException e) {
+		}
+
+		long timeMillis = date.getTime();
+		System.out.println("time millis : " + timeMillis);
+
+	}
 }

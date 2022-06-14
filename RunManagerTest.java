@@ -75,6 +75,8 @@ class RunManagerTest {
 
 		long timeMillis = date.getTime();
 		System.out.println("time millis : " + timeMillis);
-
+		System.out.println("now  (" + format.format(date) + ")");
+		Date date2 = new Date(timeMillis + 1000 * 60 * 60);
+		System.out.println("now  (" + format.format(date2) + ")");
 	}
 }

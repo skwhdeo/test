@@ -39,3 +39,25 @@ public class RunManager {
 	}
 
 }
+
+
+package com.lgcns.test;
+
+import java.io.Console;
+
+public class RunManager {
+
+	public static void main(String[] args) {
+	       Console c = System.console();
+	       MyService service = new MyService();
+	        while (true) {
+	        	String line = c.readLine();
+	        	String out = service.doCommand(line);
+	        	if(out != null) {
+	        		c.printf(out);
+	        	}	        		
+	        }
+	}
+
+}
+

@@ -1,5 +1,5 @@
 @echo off
-echo "loop start"
+echo "loop start with param" %1 %2 %3
 :loop
 set /p MYNAME=""
 echo echo=%MYNAME%

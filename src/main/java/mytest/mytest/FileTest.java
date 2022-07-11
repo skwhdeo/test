@@ -17,9 +17,6 @@ import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
 public class FileTest {
-	// 파일삭제
-	// 파일이동,이름바꾸기
-	// 파일시간 가져오기
 	@Test
 	void test() {
 		String[] s = new String[] {};

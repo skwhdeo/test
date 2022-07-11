@@ -4,6 +4,9 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ProcessTest2 {
 
@@ -43,6 +46,16 @@ public class ProcessTest2 {
 //		pw.println("end");
 //		pw.flush();
 		p.waitFor();
+
+		List<String> commands = new ArrayList<String>(
+				Arrays.asList("test.bat", "argumentsTest1", "argumentsTest2", "argumentsTest3"));
+		ProcessBuilder processBuilder2 = new ProcessBuilder(commands);
+		processBuilder2.redirectOutput(ProcessBuilder.Redirect.INHERIT);
+		processBuilder2.redirectError(ProcessBuilder.Redirect.INHERIT);
+		processBuilder2.redirectInput(ProcessBuilder.Redirect.INHERIT);
+		Process pp = processBuilder2.start();
+
+		pp.waitFor();
 
 //		ProcessBuilder p11 = new ProcessBuilder("test.bat");
 //		p11.redirectInput();
@@ -86,7 +99,7 @@ public class ProcessTest2 {
 //
 //		}
 //
-//		System.out.println("Process ended...(ì¢…ë£Œì½”ë“œ) ::: " + p3.exitValue());
+//		System.out.println("Process ended...(Á¾·áÄÚµå) ::: " + p3.exitValue());
 //
 //		
 //
@@ -108,7 +121,7 @@ public class ProcessTest2 {
 //
 //		}
 //
-//		System.out.println("Process ended...(ì¢…ë£Œì½”ë“œ) ::: " + p4.exitValue());
+//		System.out.println("Process ended...(Á¾·áÄÚµå) ::: " + p4.exitValue());
 
 	}
 

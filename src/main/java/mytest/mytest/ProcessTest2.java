@@ -1,12 +1,9 @@
 package mytest;
 
 import java.io.BufferedReader;
-import java.io.InputStream;
+import java.io.BufferedWriter;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.util.concurrent.TimeUnit;
-
- 
+import java.io.OutputStreamWriter;
 
 public class ProcessTest2 {
 
@@ -21,22 +18,51 @@ public class ProcessTest2 {
 //		p1.destroy();
 
 
-		Process p11 = r.exec("cmd /c echo");
+		ProcessBuilder processBuilder = new ProcessBuilder("test.bat");
 
-		InputStream is1 = p11.getInputStream();
+//		processBuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
+//		processBuilder.redirectError(ProcessBuilder.Redirect.INHERIT);
+//		processBuilder.redirectInput(ProcessBuilder.Redirect.INHERIT);
 
-		BufferedReader br = new BufferedReader(new InputStreamReader(is1));
-		PrintWriter pw11 = new PrintWriter(p11.getOutputStream());
-		for (String str; (str = br.readLine()) != null;) {
+		Process p = processBuilder.start();
 
-			System.out.println(str);
-			pw11.write(str);
-		}
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(p.getOutputStream()));
+		BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
+		System.out.println(br.readLine());
+		bw.write("hello");
+		bw.newLine();
+		bw.flush();
+		System.out.println(br.readLine());
+		bw.write("end");
+		bw.newLine();
+		bw.flush();
+		System.out.println(br.readLine());
+//		PrintWriter pw = new PrintWriter(p.getOutputStream());
+//		pw.println("hello");
+//		pw.flush();
+//		pw.println("end");
+//		pw.flush();
+		p.waitFor();
 
-
-		p11.waitFor(3, TimeUnit.SECONDS);
-
-		p11.destroy();
+//		ProcessBuilder p11 = new ProcessBuilder("test.bat");
+//		p11.redirectInput();
+//		InputStream is1 = p11.getInputStream();
+//
+//		BufferedReader br = new BufferedReader(new InputStreamReader(is1));
+//		PrintWriter pw11 = new PrintWriter(p11.getOutputStream());
+//		pw11.println("hello world");
+//		pw11.println("hello world");
+//		
+//		for (String str; (str = br.readLine()) != null;) {
+//
+//			System.out.println(str);
+//
+//		}
+//
+//
+//		p11.waitFor(3, TimeUnit.SECONDS);
+//
+//		p11.destroy();
 //
 //		ProcessBuilder pb1 = new ProcessBuilder("notepad", "a,txt");
 //

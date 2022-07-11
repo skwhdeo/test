@@ -1,10 +1,10 @@
-package com.lgcns.test;
+package mytest;
 
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.servlet.ServletHandler;
 
-public class RunManager {
+public class HttpServer {
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub

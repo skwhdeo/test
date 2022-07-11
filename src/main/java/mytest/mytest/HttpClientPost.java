@@ -1,4 +1,4 @@
-package com.lgcns.test;
+package mytest;
 
 import java.io.File;
 
@@ -12,6 +12,7 @@ import org.eclipse.jetty.http.HttpMethod;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+
 
 public class HttpClientPost {
 

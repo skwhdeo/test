@@ -1,4 +1,4 @@
-package com.lgcns.test;
+package mytest;
 
 import java.io.ByteArrayInputStream;
 import java.io.FileOutputStream;
@@ -9,13 +9,14 @@ import org.eclipse.jetty.client.HttpClient;
 import org.eclipse.jetty.client.api.ContentResponse;
 import org.eclipse.jetty.http.HttpMethod;
 
+
 public class HttpClientGetFile {
 
 	public static void main(String[] args) throws Exception {
 
 	}
 
-	public void GetFile1() {
+	public void GetFile1() throws Exception {
 
 		HttpClient httpClient = new HttpClient();
 		httpClient.start();
@@ -28,7 +29,7 @@ public class HttpClientGetFile {
 		httpClient.stop();
 	}
 
-	public void GetFile2() {
+	public void GetFile2() throws Exception {
 		HttpClient httpClient = new HttpClient();
 		httpClient.start();
 		ContentResponse contentRes = httpClient.newRequest("http://127.0.0.1:8080/requestFile2").method(HttpMethod.GET)
@@ -43,7 +44,7 @@ public class HttpClientGetFile {
 		httpClient.stop();
 	}
 	
-	public String GetDate() {
+	public String GetDate() throws Exception {
 		HttpClient httpClient = new HttpClient();
 		httpClient.start();
 		ContentResponse contentRes =

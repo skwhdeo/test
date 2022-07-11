@@ -1,4 +1,4 @@
-package com.lgcns.test;
+package mytest;
 
 public class Result {
 	private String Result;

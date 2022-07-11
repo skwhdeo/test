@@ -1,4 +1,4 @@
-package com.lgcns.test;
+package mytest;
 
 import java.io.IOException;
 
@@ -8,7 +8,7 @@ class MyServiceTest {
 
 	@Test
 	void test() throws ClassNotFoundException, IOException {
-		SerializableClass service = SerializableClass.getInstace();
+		SerializableService service = SerializableService.getInstace();
 		service.load();
 		service.print("-------------------");
 		service.create("test", 10);

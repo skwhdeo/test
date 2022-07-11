@@ -1,4 +1,4 @@
-package com.lgcns.test;
+package mytest;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

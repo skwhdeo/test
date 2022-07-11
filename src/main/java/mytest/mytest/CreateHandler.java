@@ -1,4 +1,4 @@
-package com.lgcns.test;
+package mytest;
 
 import java.io.IOException;
 
@@ -10,7 +10,6 @@ import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.handler.AbstractHandler;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 public class CreateHandler extends AbstractHandler {
 	Gson gson = new Gson();
@@ -38,7 +37,7 @@ public class CreateHandler extends AbstractHandler {
 		response.setContentType("text/html; charset=utf-8");
         response.setStatus(HttpServletResponse.SC_OK);
         try {
-			response.getWriter().write(gson.toJson(MyService.getInstace().create(name, 0)));
+			response.getWriter().write(gson.toJson(SerializableService.getInstace().create(name, 0)));
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -53,6 +52,7 @@ public class CreateHandler extends AbstractHandler {
 		// TODO Auto-generated method stub
 
 	}
+
 
 }
 

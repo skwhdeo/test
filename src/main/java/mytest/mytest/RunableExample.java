@@ -45,6 +45,18 @@ public class RunnableExample {
         thread2.start();
 
         System.out.println("메인 스레드가 thread1, thread2 시작 요청함.");
+
+        try {
+            // thread1과 thread2가 종료될 때까지 대기
+            thread1.join();
+            thread2.join();
+        } catch (InterruptedException e) {
+            System.out.println("메인 스레드가 인터럽트됨.");
+            Thread.currentThread().interrupt();
+        }
+
+        // 두 스레드가 종료된 후 실행되는 코드
+        System.out.println("모든 작업이 완료되었습니다.");
         System.out.println("메인 스레드 종료.");
     }
 }
